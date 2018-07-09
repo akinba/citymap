@@ -19,14 +19,14 @@ app.set('port', port);
 app.set("view engine", "ejs");
 
 //set database
-/*if (os.hostname()=='raspi') {
+if (os.hostname()=='raspi') {
     let db = new Sequelize("postgres://postgres:pi@localhost:5432/maks");
 } else {
     let db = new Sequelize("postgres://postgres:pi@www.akinba.com:5432/maks"
         //,{logging:false}
     );
-}*/
-let db = new Sequelize("postgres://postgres:pi@192.168.2.225:5432/maks");
+}
+//let db = new Sequelize("postgres://postgres:pi@192.168.2.225:5432/maks");
 
 
 app.get("/", (req,res)=>{
