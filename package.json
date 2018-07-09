@@ -1,0 +1,27 @@
+{
+  "name": "citymap",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/akinba/citymap.git"
+  },
+  "author": "BSA",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/akinba/citymap/issues"
+  },
+  "homepage": "https://github.com/akinba/citymap#readme",
+  "dependencies": {
+    "cookie-parser": "^1.4.3",
+    "ejs": "^2.6.1",
+    "express": "^4.16.3",
+    "morgan": "^1.9.0",
+    "pg": "^7.4.3",
+    "sequelize": "^4.38.0"
+  }
+}

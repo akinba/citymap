@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link href='https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons' rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/vuetify/dist/vuetify.min.css" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+  <style type="text/css">
+    canvas {
+      height: 100%;
+    }
+  </style>
+</head>
+<body>
+  <div id="app">
+  <v-app>
+      <v-toolbar>
+        <v-toolbar-side-icon></v-toolbar-side-icon>
+        <v-toolbar-title>Title</v-toolbar-title>
+        <v-spacer></v-spacer>
+        <v-toolbar-items class="">
+          <v-btn flat>Link One</v-btn>
+          <v-btn flat>Link Two</v-btn>
+          <v-btn flat>Link Three</v-btn>
+        </v-toolbar-items>
+      </v-toolbar>
+  <vl-map :load-tiles-while-animating="true" :load-tiles-while-interacting="true" style="">
+      <vl-view :zoom.sync="zoom" :center="center" :rotation.sync="rotation" :projection="projection"></vl-view>
+
+      <vl-layer-tile id="osm">
+        <vl-source-osm></vl-source-osm>
+      </vl-layer-tile>
+      <vl-layer-vector>
+        <vl-source-vector :features="features"></vl-source-vector>
+      </vl-layer-vector>
+  </vl-map>
+  </v-app>
+  </div>
+ 
+<!-- include Vue -->
+<script src="https://unpkg.com/vue/dist/vue.js"></script>
+<!-- include OpenLayers -->
+<script src="https://unpkg.com/openlayers/dist/ol.js"></script>
+<!-- include UMD VueLayers build -->
+<link rel="stylesheet" href="https://unpkg.com/vuelayers/lib/style.css">
+<script src="https://unpkg.com/vuelayers/lib/index.umd.js"></script>
+<!-- include Vuetify -->
+<script src="https://cdn.jsdelivr.net/npm/vuetify/dist/vuetify.js"></script>
+<script>
+  Vue.use(VueLayers);
+  new Vue({
+     el: '#app' ,
+     data: {
+      zoom: 12,
+      center: [29.16264553920366, 40.92964550125703 ],
+      rotation:0,
+      projection: 'EPSG:4326',
+      features: <%-JSON.stringify(yapi)%>
+     }
+  });
+</script>
+</body>
+</html>
